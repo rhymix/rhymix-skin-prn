@@ -1,4 +1,4 @@
-RX PRN mobile theme for Rhymix
+# RX PRN mobile theme for Rhymix
 RX PRN for Rhymix was developed for Rhymix, but would not be maintained by Rhymix maintainers.
 
 This theme contains the mobile skins for the communication, and member module of Rhymix.

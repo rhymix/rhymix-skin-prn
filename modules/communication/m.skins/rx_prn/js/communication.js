@@ -98,6 +98,10 @@ function isRxPrnTouchable() {
 }
 
 $(document).ready(function() {
+	/* init color-scheme (auto) */
+	if (getColorScheme() == 'dark' && !getCookie('rx_color_scheme')) {
+		$('.rx_prn_communication').addClass('rx_prn_darkmode');
+	}
 	$('.__submit_group button[type=submit]').click(function(e){
 		var sel_val = $('input[name="friend_srl_list[]"]:checked').length;
 		if(sel_val == 0)

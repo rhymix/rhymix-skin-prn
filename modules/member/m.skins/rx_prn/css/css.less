@@ -114,11 +114,11 @@ script, style
 	
 	.background-lightgray()
 	{
-		background-color: #fafafa
+		background-color: #fafafa;
 	}
-	.background-gray()
+	.background-darkgray()
 	{
-		background-color: #bdbdbd
+		background-color: #424242;
 	}
 	.background-lightpoint()
 	{
@@ -151,7 +151,7 @@ script, style
 	}
 
 	/* Tab over the main content. */
-	div.rx_prn_tab{
+	div.rx_prn_tab {
 		background: #ffffff;
 		margin: 5px 0 0;
 		box-sizing: border-box;
@@ -174,13 +174,19 @@ script, style
 					display:inline-block;
 					letter-spacing: -1px;
 					line-height: 3;
-					border-bottom: solid 3px #fff;
+					border-bottom: solid 3px rgba(255,255,255,0);
 					padding: 0 5px;
 					.font-l();
 					.font-bold();
 				}
 				a:hover, a:focus, &.active a{
 					border-bottom: solid 3px @color;
+				}
+				&:first-child {
+					padding-left: 0;
+				}
+				&:last-child {
+					padding-right: 0;
 				}
 			}
 		}
@@ -484,7 +490,7 @@ script, style
 			&>a
 			{
 				display: inline-block;
-				border-radius: 50%;
+				border-radius: 20px;
 				background-color: #fff;
 				padding: 10px 15px;
 				text-decoration: none;
@@ -517,6 +523,75 @@ script, style
 			&:hover, &:focus
 			{
 				.bg-contrast(#000; lighten(@color,5%); darken(@color,5%); 4.0);
+			}
+		}
+	}
+	
+	/* dark-mode */
+	&.rx_prn_darkmode {
+		.font-light();
+		
+		a
+		{
+			.font-light();
+		}
+		/* Tab over the main content. */
+		div.rx_prn_tab{
+			background: transparent;
+		}
+		.prn-body {
+			.background-darkgray();
+			color: #fff;
+			
+			.prn-anchor-buttons
+			{
+				&>a, &>label, &>button, &>select, &>input[type="submit"]
+				{
+					.background-darkgray();
+					&:hover, &:focus
+					{
+						.bg-contrast(#fff; lighten(@color,5%); darken(@color,5%); 2.0);
+					}
+					&:first-child
+					{
+						border-top: 1px solid #d1d1d1;
+					}
+				}
+			}
+			
+			/* The list of document style */
+			.rx_sw_list .cont_a {
+				.font-light();
+				&:hover, &:focus {
+					.text-contrast(#000; darken(@color,5%); lighten(@color,5%));
+				}
+			}
+		}
+		form {
+			div.control-group {
+				&.agreement .text
+				{
+					.font-light();
+				}
+			}
+		}
+		
+		.pagination ul
+		{
+			li{
+				&>a
+				{
+					background-color: transparent;
+					&:hover, &:focus
+					{
+						.bg-contrast(#fff; lighten(@color,5%); darken(@color,5%); 1.0);
+					}
+				}
+				&.active>a
+				{
+					.background-darkgray();
+					color:#fff;
+				}
 			}
 		}
 	}

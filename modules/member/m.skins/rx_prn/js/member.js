@@ -172,6 +172,10 @@ function isRxPrnTouchable() {
 }
 
 $(document).ready(function() {
+	/* init color-scheme (auto) */
+	if (getColorScheme() == 'dark' && !getCookie('rx_color_scheme')) {
+		$('.rx_prn_member').addClass('rx_prn_darkmode');
+	}
 	if(isRxPrnTouchable()) {
 		$(".rx_prn_member div.rx_prn_tab ul.rx_prn_tab").css('white-space', 'nowrap');
 		try

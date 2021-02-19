@@ -128,7 +128,7 @@
 		<!--// Footer Menu -->
 		<nav class="layout_menu" id="layout_fnb" cond="is_countable($FNB->list) && count($FNB->list)">
 			<ul>
-				<li loop="$FNB->list=>$key1,$val1" class="footer_menu">
+				<li loop="$FNB->list=>$key1,$val1" cond="$val1['href'] || $val1['list']" class="footer_menu">
 					<a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'"><span>{$val1['link']}</span></a>
 				</li>
 			</ul>

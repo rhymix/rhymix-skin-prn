@@ -38,6 +38,9 @@ jQuery(function($)
 	var display_menu = function()
 	{
 		var currentScroll = $(window).scrollTop();
+		if (currentScroll < 0) {
+			currentScroll = 0;
+		}
 
 		if (currentScroll > previousScroll)
 		{

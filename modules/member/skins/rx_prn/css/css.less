@@ -50,7 +50,7 @@
 
 /* As LESS library in Rhymix substitude variables as an strings, convert colors as the color objects of LESS. */
 @color: rgb(@red, @green, @blue);
-
+@grey: #9e9e9e;
 
 /* As this file handle some wild-selectors to control display settings, hide inline script and style codes. */
 script, style
@@ -110,15 +110,31 @@ script, style
 	{
 		color: #bdbdbd
 	}
+	.font-vlight()
+	{
+		color: lighten(@grey, 20%);
+	}
 
 	
+	.background-vlightgray()
+	{
+		background: lighten(@grey, 33%);
+	}
 	.background-lightgray()
 	{
-		background-color: #fafafa;
+		background: lighten(@grey, 20%);
+	}
+	.background-gray()
+	{
+		background: @grey;
+	}
+	.background-sdarkgray()
+	{
+		background: darken(@grey, 20%);
 	}
 	.background-darkgray()
 	{
-		background-color: #424242;
+		background: #424242;
 	}
 	.background-lightpoint()
 	{
@@ -204,7 +220,7 @@ script, style
 	{
 		box-sizing:border-box;
 		border-radius: 25px;
-		.background-lightgray();
+		.background-vlightgray();
 		margin: 0 0 17px;
 		padding: 1px 0;
 		&>*
@@ -215,9 +231,8 @@ script, style
 		}
 		h1
 		{
-			padding: 15px 5px;
-			margin: 5px 15px;
-			border-bottom: 1px solid #d1d1d1;
+			padding: 15px 10px;
+			margin: 3px 15px;
 			.font-l();
 			.font-bold();
 		}
@@ -249,7 +264,7 @@ script, style
 		.prn-anchor-buttons
 		{
 			margin: 5px 0px;
-			&>a, &>label, &>button, &>select, &>input[type="submit"]
+			&>a, &>label, &>button, &>select, &>input[type="submit"], &>input[type="button"]
 			{
 				display: block;
 				width: 100%;
@@ -260,7 +275,7 @@ script, style
 				border-bottom: 1px solid #d1d1d1;
 				border-left:   none;
 				border-radius: 0px;
-				background-color: #fff;
+				background: #fff;
 				padding: 10px 15px;
 				text-decoration: none;
 				text-align: center;
@@ -269,6 +284,7 @@ script, style
 				&:hover, &:focus
 				{
 					.bg-contrast(#000; lighten(@color,5%); darken(@color,5%); 4.0);
+					color: #000;
 				}
 				&:first-child
 				{
@@ -301,15 +317,19 @@ script, style
 			}
 			&>input, &>select, button, #prn_profile_imagetag label.prn_button, &.agreement .text
 			{
-				border: 1px solid #d1d1d1;
+				background: #ddd;
+				border: none;
 				height: auto;
 				border-radius: 25px;
 				margin-top: 0;
-				padding: 8px 15px;
+				padding: 8px 25px;
 				-webkit-appearance: none;
 				line-height: 2;
-				.font-gray();
+				color: #000;
 				.font-m();
+				&:hover, &:focus {
+					background: #fff;
+				}
 			}
 			&.agreement .text
 			{
@@ -320,14 +340,23 @@ script, style
 			{
 				font-weight: bold;
 				border:0;
+				margin: 10px 0px;
+			}
+			&>.phone_country {
+				width: 45%;
+				float: left;
+			}
+			&>.phone_number {
+				width: 55%;
 			}
 		}
 	}
-	form input[type="submit"], form input.btn.dateRemover, form button, label.prn_button
+	form input[type="submit"], form input[type="button"], form input.btn.dateRemover, form button, label.prn_button
 	{
+		margin: 10px 0px;
 		padding: 10px;
 		vertical-align: bottom;
-		.bg-contrast(#000; lighten(@color,5%); darken(@color,5%); 3.0);
+		background: #ddd;
 		font-weight: bold;
 		text-shadow: none;
 		border:0;
@@ -371,12 +400,11 @@ script, style
 	{
 		.bg-contrast(#000; lighten(@color, 5%); darken(@color, 5%); 5.0);
 		color: #000;
-		border-radius: 15px;
-		padding: 15px;
+		border-radius: 25px;
+		padding: 15px 25px;
 		margin: 10px;
 		margin-top:0;
 		text-align: justify;
-		.font-gray();
 		.font-m();
 	}
 	.rx_member-notice.error
@@ -396,24 +424,6 @@ script, style
 	}
 	
 	/* The list of document style */
-	.rx_sw_list .cont_a {
-		color: #222;
-		display: block;
-		letter-spacing: -1px;
-		line-height: 18px;
-		margin: 0;
-		overflow: hidden;
-		padding: 0.667em 70px 0.733em 15px;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		text-decoration: none;
-		&.no_delete {
-			padding-right: 15px;
-		}
-		&:hover, &:focus {
-			.text-contrast(#fff; darken(@color,5%); lighten(@color,5%));
-		}
-	}
 	.content_basic{
 		position:relative;
 		display:inline-block;
@@ -434,12 +444,31 @@ script, style
 		list-style: outside none none;
 		padding: 0;
 		margin: 0;
-		border-bottom: 1px solid #e0e0e0;
 		li {
 			position:relative;
-			border-top: 1px solid #e0e0e0;
 			overflow: hidden;
 			padding:0;
+			.cont_a {
+				display: block;
+				letter-spacing: -1px;
+				line-height: 18px;
+				margin: 0;
+				overflow: hidden;
+				padding: 0.667em 70px 0.733em 15px;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				text-decoration: none;
+				&.no_delete {
+					padding-right: 15px;
+				}
+			}
+			&:hover, &:focus {
+				.background-darkgray();
+				border-radius: 25px;
+				a, .cont_a {
+					color: #fff;
+				}
+			}
 		}
 		.content_delete{
 			position:absolute;
@@ -469,18 +498,42 @@ script, style
 		clear: both;
 		text-align: center;
 		padding: 0 0 14px 0;
-		input[type=search] {
-			font-size: 12px; line-height: 16px; padding: 3px; width: 160px; height: 24px; box-sizing: border-box;
-			border: 1px solid #999;
+		input {
+			font-size:12px;
+			-webkit-appearance: none;
+			border-radius: 10px;
 		}
-		select {
-			font-size: 12px; line-height: 16px; padding: 3px; height: 24px; box-sizing: border-box;
-			border: 1px solid #999;
+		input[type=search], select {
+			min-width: 126px;
+			line-height: 18px;
+			margin: 0;
+			padding: 15px;
+			position: relative;
+			display: inline-block;
+			outline: none;
+			border-radius: 25px;
+			border: none;
+			background: lighten(@grey, 35%);
+			color: #000;
+			&::placeholder {
+				.font-gray();
+			}
+			&:hover, &:active, &:focus {
+				background: lighten(@color, 10%);
+			}
 		}
 		button {
-			font-size: 12px; line-height: 16px; padding: 3px 8px; height: 24px; box-sizing: border-box;
-			border: 1px solid #ccc;
-			background: #f4f4f4;
+			vertical-align: bottom;
+			background: lighten(@grey, 30%);
+			border-radius: 25px;
+			border: none;
+			color: #000;
+			height:48px;
+			padding:0 25px;
+			margin:0;
+			&:hover, &:active, &:focus {
+				background: @color;
+			}
 		}
 	}
 	.pagination ul
@@ -496,7 +549,7 @@ script, style
 			{
 				display: inline-block;
 				border-radius: 20px;
-				background-color: #fff;
+				background: #fff;
 				padding: 10px 15px;
 				text-decoration: none;
 				.font-m();
@@ -507,7 +560,7 @@ script, style
 			}
 			&.active>a
 			{
-				background-color: #d1d1d1;
+				background: #d1d1d1;
 				font-weight:bold;
 				color:#000;
 			}
@@ -519,8 +572,8 @@ script, style
 		{
 			display: block;
 			border-radius: 25px;
-			border: 1px solid #d1d1d1;
-			background-color: #fff;
+			border: none;
+			background: #eee;
 			padding: 10px 15px;
 			text-decoration: none;
 			text-align: center;
@@ -533,19 +586,18 @@ script, style
 	}
 	
 	/* dark-mode */
-	&.rx_prn_darkmode {
-		.font-light();
-		
+	.color_scheme_dark & {
+		color: #fff;
 		a
 		{
-			.font-light();
+			.font-vlight();
 		}
 		/* Tab over the main content. */
 		div.rx_prn_tab{
 			background: transparent;
 		}
 		.prn-body {
-			.background-darkgray();
+			background: darken(@grey, 40%);
 			color: #fff;
 			
 			.prn-anchor-buttons
@@ -556,6 +608,7 @@ script, style
 					&:hover, &:focus
 					{
 						.bg-contrast(#fff; lighten(@color,5%); darken(@color,5%); 2.0);
+						color: #fff;
 					}
 					&:first-child
 					{
@@ -566,17 +619,42 @@ script, style
 			
 			/* The list of document style */
 			.rx_sw_list .cont_a {
-				.font-light();
+				.font-vlight();
 				&:hover, &:focus {
-					.text-contrast(#000; darken(@color,5%); lighten(@color,5%));
+					color: #fff;
 				}
 			}
 		}
 		form {
 			div.control-group {
+			
+				&>input, &>select, button, #prn_profile_imagetag label.prn_button, &.agreement .text
+				{
+					background: darken(@grey, 30%);
+					color: #fff;
+					&::placeholder {
+						.font-gray();
+					}
+					&:hover, &:active, &:focus {
+						.background-darkgray();
+					}
+				}
 				&.agreement .text
 				{
-					.font-light();
+					.font-vlight();
+				}
+				
+				
+			}
+			
+			
+			input[type="submit"], input.btn.dateRemover, button, label.prn_button
+			{
+				.background-sdarkgray();
+				color: #fff;
+				&:hover, &:focus
+				{
+					.bg-contrast(#fff; lighten(@color,5%); darken(@color,5%); 4.0);
 				}
 			}
 		}
@@ -586,7 +664,7 @@ script, style
 			li{
 				&>a
 				{
-					background-color: transparent;
+					background: transparent;
 					&:hover, &:focus
 					{
 						.bg-contrast(#fff; lighten(@color,5%); darken(@color,5%); 1.0);
@@ -596,6 +674,51 @@ script, style
 				{
 					.background-darkgray();
 					color:#fff;
+				}
+			}
+		}
+		
+		.rx_member-notice, .rx_member-notice.info
+		{
+			.background-sdarkgray();
+			color: #fff;
+		}
+		.rx_member-notice.error
+		{
+			.background-sdarkgray();
+			color: #ff5e48;
+		}
+		.rx_member-notice.update
+		{
+			.background-sdarkgray();
+			color: #7ec783;
+		}
+		
+		.search {
+			input[type=search], select {
+				background: darken(@grey, 20%);
+				color: #fff;
+				&::placeholder {
+					.font-gray();
+				}
+				&:hover, &:active, &:focus {
+					.background-darkgray();
+				}
+			}
+			button {
+				background: darken(@grey, 35%);
+			}
+		}
+		.prn-footer
+		{
+			&>a
+			{
+				.background-sdarkgray();
+				.font-m();
+				color:#fff;
+				&:hover, &:focus
+				{
+					.background-darkgray();
 				}
 			}
 		}

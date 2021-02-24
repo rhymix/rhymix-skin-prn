@@ -512,8 +512,7 @@ body {
 			
 			li a:hover,
 			li a:focus,
-			li a:active,
-			.layout_focus {
+			li a:active {
 				color: white;
 				background-color: darken(@grey, 25%);
 			}
@@ -541,11 +540,10 @@ body {
 				background-color: darken(@grey, 35%);
 			}
 		}
-		ul {
-			li a:hover,
-			li a:focus,
-			li a:active,
-			.layout_focus {
+		ul li a {
+			&:hover,
+			&:focus,
+			&:active {
 				background-color: darken(@grey, 25%);
 			}
 		}

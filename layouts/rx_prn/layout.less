@@ -548,7 +548,6 @@ body {
 	header.layout_frame .layout_menu {
 		.layout_dropdown-content {
 			li a {
-				background-color: darken(@grey, 35%);
 				color: #fff;
 			}
 		}
@@ -858,6 +857,22 @@ body {
 			}
 			#content{
 				width:100%;
+			}
+		}
+		
+	}
+	.color_scheme_dark {
+		header.layout_frame .layout_menu {
+			.layout_dropdown-content {
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				li {
+					a {
+						background-color: darken(@grey, 35%);
+					}
+					ul li a {
+						background-color: darken(@grey, 40%);
+					}
+				}
 			}
 		}
 	}

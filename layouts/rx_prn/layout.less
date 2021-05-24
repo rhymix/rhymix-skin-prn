@@ -861,6 +861,23 @@ body {
 		}
 		
 	}
+	.color_scheme_light {
+		header.layout_frame .layout_menu {
+			.layout_dropdown-content {
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				li ul li a {
+					background-color: transparent;
+					&:hover, &:active, &:focus {
+						background: lighten(@primary-color, 10%);
+						.layoutBW(lighten(@primary-color, 10%));
+						&::placeholder {
+							.layoutBW(lighten(@primary-color, 10%));
+						}
+					}
+				}
+			}
+		}
+	}
 	.color_scheme_dark {
 		header.layout_frame .layout_menu {
 			.layout_dropdown-content {
@@ -870,7 +887,10 @@ body {
 						background-color: darken(@grey, 35%);
 					}
 					ul li a {
-						background-color: darken(@grey, 40%);
+						background-color: transparent;
+						&:hover, &:active, &:focus {
+							background: darken(@grey, 25%);
+						}
 					}
 				}
 			}

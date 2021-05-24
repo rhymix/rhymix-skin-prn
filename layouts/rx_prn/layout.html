@@ -112,7 +112,7 @@
 				{$layout_info->left_content}
 			</section>
 		</div>
-		<div class="layout_content" id="content">
+		<div class="layout_content<!--@if($layout_info->content_padding == 'Y')--> layout_padding_10<!--@end-->" id="content">
 			{$layout_info->before_content|noescape}
 			{$content|noescape}
 			{$layout_info->after_content|noescape}

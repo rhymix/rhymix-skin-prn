@@ -4,8 +4,8 @@
 	<title xml:lang="en">Rhymix PRN</title>
 	<description xml:lang="ko">깔끔한 면과 그림자 레이아웃</description>
 	<description xml:lang="en">Rectangular planes and shadows</description>
-	<version>0.3</version>
-	<date>2021-02-18</date>
+	<version>0.3.1</version>
+	<date>2021-05-24</date>
 	<author email_address="misol.kr@gmail.com" link="https://github.com/misol">
 		<name xml:lang="ko">misol</name>
 		<name xml:lang="en">misol</name>
@@ -94,6 +94,20 @@
 			<title xml:lang="en">Customized primary color</title>
 			<description xml:lang="ko">분위기를 형성하는데 사용되는 중심 색상을 위에서 선택하지 않고 Hex 코드로 직접 입력 합니다. (기본 값: #f44336) 위 항목에서 '커스텀' 항목을 선택해야 적용됩니다.</description>
 			<description xml:lang="en">Please type the mood color you want, if there is no choice before. Insert your color in hex code. (dafault value:  #f44336) To use this option, you have to select 'Customized' for the options before.</description>
+		</var>
+		<var name="content_padding" type="select">
+			<title xml:lang="ko">컨텐츠 여백</title>
+			<title xml:lang="en">Content padding</title>
+			<description xml:lang="ko">본문 주변에 10 px의 여백을 만듭니다..</description>
+			<description xml:lang="en">Make a space around content area.</description>
+			<options value="N">
+				<title xml:lang="ko">만들지 않습니다.</title>
+				<title xml:lang="en">I don't need it.</title>
+			</options>
+			<options value="Y">
+				<title xml:lang="ko">공간을 만듭니다.</title>
+				<title xml:lang="en">I need it.</title>
+			</options>
 		</var>
 		<var name="darkmode" type="select">
 			<title xml:lang="ko">다크모드</title>

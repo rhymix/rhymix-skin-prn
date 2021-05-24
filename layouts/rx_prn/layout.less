@@ -470,6 +470,7 @@ body {
 			list-style:none;
 			background: lighten(@grey, 40%);
 			border-radius: 10px;
+			padding: 5px;
 			.color_scheme_dark & {
 				background: darken(@grey, 35%);
 				&:hover button,
@@ -499,6 +500,9 @@ body {
 				}
 			}
 		}
+	}
+	.layout_content.layout_padding_10 {
+		padding: 10px;
 	}
 }
 
@@ -545,6 +549,7 @@ body {
 		.layout_dropdown-content {
 			li a {
 				background-color: darken(@grey, 35%);
+				color: #fff;
 			}
 		}
 		ul li a {
@@ -771,7 +776,8 @@ body {
 				display: block;
 				color: #000;
 				text-align: left;
-				padding: 15px;
+				padding: 14px;
+				margin: 10px;
 				text-decoration: none;
 			}
 
@@ -803,7 +809,6 @@ body {
 				a {
 					background-color: lighten(@grey, 45%);
 					.layoutBW(lighten(@grey, 45%));
-					padding: 15px 30px;
 					text-decoration: none;
 					display: block;
 					text-align: left;
@@ -856,4 +861,5 @@ body {
 			}
 		}
 	}
+
 }
